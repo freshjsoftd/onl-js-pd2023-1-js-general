@@ -1,19 +1,22 @@
 'use strict';
-/* let count = 10;
-do{
-console.log(count);
-  count++;
+/* Найти сумму всех целых чисел от a до 100.
+       Значение a вводится из браузера (prompt).
+       a должно быть ≤ 100 и > 0.
+       Сумму вывести в консоль. 
+       Нужна проверка на number. */
+let a = 0;
+let result = 0;
+// debugger
+{
+  let c = 10;
+  console.log('first')
 }
-while(count <= 10) */
-/* for(let i = 1; i <= 10; i++) {
-  if(i === 5) break;
-  console.log(`Counter = ${i*2}`)
-} */
-// Multiply table
-/* outer: for(let i = 1; i < 10; i++) {
-  inner: for(let j = 1; j < 10; j++) {
-    if(i === 3) continue outer;
-    if(j === 3) continue inner;
-    console.log(`${i} x ${j} = ${i * j}`)
-  }
-} */
+function getName(){
+ let d ='dd';
+}
+
+
+for(; a <= 100; a++) {
+  result += a;
+}
+console.log(result);

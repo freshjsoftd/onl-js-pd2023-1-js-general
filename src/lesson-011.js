@@ -1,50 +1,19 @@
-/* let a = 20;
-
-a = a + 2;
-a += 1;
- a /= 2;
-a **= 2 
-a++;
-a--;
-++a;
---a; 
-console.log(50 + a--);
-console.log(a) */
-// console.log(50 + a++);
-
-/* let year = Number(prompt('Enter a year'));
-if (Number.isNaN(year) && year === 0){
-  console.log('Enter number, please')
-}else{
-  if (year % 100 === 0) {
-		if (year % 400 === 0) {
-			console.log('This is a leap year');
-		} else {
-			console.log('This is not a leap year');
-		}
-	} else if (year % 4 === 0 && year > 4) {
-		console.log('This is a leap year');
-	} else {
-		console.log('This is not a leap year');
-	}
-} */
-let year = 2000;
-// /* let year = Number(prompt('Enter a year'));
-if (Number.isNaN(year) && year === 0) {
-	console.log('Enter number, please');
-} else {
-	if ((year % 100 !== 0 || year % 400 === 0) && (year % 4 === 0 && year > 4)) {
-		console.log('This is a leap year');
-	} else {
-		console.log('This is a not leap year');
-	}
+'use strict';
+/* let count = 10;
+do{
+console.log(count);
+  count++;
 }
-// let b = 0;
-/* if(b && 10 && 12){
-  console.log(true)
-}else{
-  console.log(false)
+while(count <= 10) */
+/* for(let i = 1; i <= 10; i++) {
+  if(i === 5) break;
+  console.log(`Counter = ${i*2}`)
 } */
-// console.log(b && 12 && 'adsds');
-/* console.log(b || 20);
-console.log(b ?? 20); */
+// Multiply table
+/* outer: for(let i = 1; i < 10; i++) {
+  inner: for(let j = 1; j < 10; j++) {
+    if(i === 3) continue outer;
+    if(j === 3) continue inner;
+    console.log(`${i} x ${j} = ${i * j}`)
+  }
+} */

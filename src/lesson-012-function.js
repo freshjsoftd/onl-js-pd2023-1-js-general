@@ -1,42 +1,27 @@
 'use strict';
 
-// Calculator
-const summ = (a, b) => a + b;
-const sub = (a, b) => a - b;
-const div = (a, b) => a / b;
-const mult = (a, b) => a * b;
+/* Требуется написать стрелочную функцию, выводящую в консоль числа от 1 до n, 
+        где n — это целое число, которое функция принимает в качестве аргумента, с такими условиями:
+        вывод фразы "fiss" вместо чисел, кратных 3;
+        вывод фразы "buss" вместо чисел, кратных 5;
+        вывод фразы "fiss-buss" вместо чисел, кратных как 3, так и 5. */
 
-const calculate = function (oper1, oper2, mathOperation) {
-  let operation;
-  switch(mathOperation){
-    case '+': {
-      operation = summ;
-      break;
-    }
-    case '-': {
-      operation = sub;
-      break;
-    }
-    case '/': {
-      operation = div;
-      break;
-    }
-    case '*': {
-      operation = mult;
-      break;
-    }
-    default: console.log('Unknown operation')
+/* const printFissBuss = n => {
+	for (let i = 1; i <= n; i++) {
+		if (i % 3 === 0 && i % 5 === 0) {
+			console.log('fiss-buss');
+		}else if(i % 3 === 0){
+      console.log('fiss');
+    }else if (i % 5 === 0) {
+		console.log('buss');
+	} else {
+    console.log(i)
   }
-  if(typeof operation === 'function'){
-    return operation(oper1, oper2);
-  }
-  return 'Entered wrong math operation';
+	}
+};
+printFissBuss(100); */
+// let numb1 = 10;
+/* function changeGlobal(numb1 = 10) {
+	return numb1 * Math.random();
 }
-
-const userNumb1 = Number(prompt('Enter first number'));
-const userNumb2 = Number(prompt('Enter second number'));
-const mathOperation = prompt('Enter math operation');
-
-const result = calculate(userNumb1, userNumb2, mathOperation);
-console.log(result);
-
+console.log(changeGlobal()) */

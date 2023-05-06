@@ -1,40 +1,42 @@
 'use strict';
 
-/* const multTwo = (a) => a * 2;
-console.log(multTwo(50, 70)); */
+// Calculator
+const summ = (a, b) => a + b;
+const sub = (a, b) => a - b;
+const div = (a, b) => a / b;
+const mult = (a, b) => a * b;
 
-/* const summ = (a = 20, b = 5) => a / b;
-console.log(summ()); */
-/* function dev(a, b) {
-  return (
-  a / b
-  )
-}
-console.log(dev(20, 5)); */
-
-/* let brand = 'Stiga';
-let ttBlade = 'Donic';
-function changeArg(brand, ttBlade){
-  brand = 'Butterfly';
-  ttBlade = 'DHS';
-  console.log(brand);
-  console.log(ttBlade);
-}
-
-changeArg(brand, ttBlade);
-
-console.log(brand);
-console.log(ttBlade); */
-
-function checkAge(age = 16) {
-  if(typeof age !== 'number' && !Number.isNaN(age)) {
-    return 'Enter number, please';
+const calculate = function (oper1, oper2, mathOperation) {
+  let operation;
+  switch(mathOperation){
+    case '+': {
+      operation = summ;
+      break;
+    }
+    case '-': {
+      operation = sub;
+      break;
+    }
+    case '/': {
+      operation = div;
+      break;
+    }
+    case '*': {
+      operation = mult;
+      break;
+    }
+    default: console.log('Unknown operation')
   }
-	if (age < 18) {
-		return 'You are too much young';
-	}
-	if (age >= 18) {
-		return 'You are enough adult';
-	}
+  if(typeof operation === 'function'){
+    return operation(oper1, oper2);
+  }
+  return 'Entered wrong math operation';
 }
-console.log(checkAge(18));
+
+const userNumb1 = Number(prompt('Enter first number'));
+const userNumb2 = Number(prompt('Enter second number'));
+const mathOperation = prompt('Enter math operation');
+
+const result = calculate(userNumb1, userNumb2, mathOperation);
+console.log(result);
+

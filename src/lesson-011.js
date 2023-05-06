@@ -25,11 +25,12 @@ if (Number.isNaN(a) || a < 0) {
 const PI = Math.PI;
 console.log(PI.toPrecision(2)); */
 /* let res = 0;
-let radius = 0.5/2;
-for(let i = 0; i < 12; i++){
-  const thickness = 0.01;
-  let volume = (4/3*Math.PI*radius**3);
-  radius += thickness;
-  res += volume;
+let radius = 0.5 / 2;
+for (let i = 0; i < 12; i++) {
+	const thickness = 0.01;
+	let volume = (4 / 3) * Math.PI * radius ** 3;
+	radius += thickness;
+	res += volume;
 }
-console.log(res.toPrecision(5)) */
+console.log(res.toPrecision(5)); */
+

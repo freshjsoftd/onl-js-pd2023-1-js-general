@@ -54,3 +54,28 @@ for (const item in user) {
 		return true;
  }
  console.log(isEmpty(user));
+
+ /* Создайте функцию multiplyNum(obj), которая умножает 
+    все числовые свойства объекта price на 2 и 
+    затем выведите в консоле список такого вида key: value. 
+    Объект price - счет в ресторане, 5 
+    числовых свойств, одно boolean и одно string */
+    const price = {
+		tea: 20,
+		coffee: 30,
+		meal: 50,
+		onion: 10,
+		waiter: 'Jhon Doe',
+		isPaid: false,
+	};
+  function multBill(bill){
+    for (const key in bill) {
+      if(typeof bill[key] === 'number'){
+        bill[key] = bill[key] * 2;
+      }
+    }
+  }
+  multBill(price);
+  for(const key in price){
+    console.log(`${key} : ${price[key]}`)
+  }

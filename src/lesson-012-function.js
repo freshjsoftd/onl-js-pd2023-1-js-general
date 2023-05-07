@@ -1,4 +1,9 @@
 'use strict';
+
+/* function create(a, b){
+  return a + b;
+}
+console.log(create(20, 30, 50, 40)); */
 /**
  * 
  * @param {number} a first operator
@@ -34,4 +39,19 @@ const ageTwoFold = (sonAge, fatherAge) => {
   if(fatherAge / sonAge === 2){
     return result;
   }
-};
+  if (fatherAge / sonAge > 2) {
+		while (fatherAge / sonAge !== 2) {
+			fatherAge++;
+			sonAge++;
+			result++;
+		}
+		return result;
+  }
+  while (fatherAge / sonAge !== 2) {
+		fatherAge--;
+		sonAge--;
+		result++;
+  }
+  return -result;
+}
+console.log(ageTwoFold(20, 36));

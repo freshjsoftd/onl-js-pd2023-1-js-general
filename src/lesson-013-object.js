@@ -29,6 +29,7 @@ function setTitle(rate, lastName) {
 		[title]: rate,
 		lastName,
 	};
+	console.log(title in sportsman);
 	return sportsman;
 }
 console.log(setTitle(30, 'Jhon'));
@@ -38,3 +39,18 @@ user.say();
  transmition, isWell, color, run()
    run() создать при помощи FunctionDeclaration
  */
+// console.log('home' in user);
+for (const item in user) {
+	console.log(`${item}: ${user[item]}`);
+}
+/* Напишите функцию isEmpty(obj), которая возвращает true,
+ если у объекта нет свойств, иначе false. */
+
+ const obj = {};
+ function isEmpty(obj) {
+		for (let key in obj) {
+			return false;
+		}
+		return true;
+ }
+ console.log(isEmpty(user));

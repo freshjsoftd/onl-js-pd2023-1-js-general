@@ -1,78 +1,56 @@
 'use strict';
 // debugger
-const companyEmailAddresses = {
-	finance: ['jill@companyx.com', 'frank@companyx.com'],
-	engineering: {
-		qa: ['ahmed@companyx.com', 'taylor@companyx.com'],
-		development: [
-			'cletus@companyx.com',
-			'bojangles@companyx.com',
-			'bibi@companyx.com',
-		],
-	},
-	management: {
-		directors: [
-			'tanya@companyx.com',
-			'odell@companyx.com',
-			'amin@companyx.com',
-		],
-		projectLeaders: [
-			'bobby@companyx.com',
-			'jack@companyx.com',
-			'harry@companyx.com',
-			'oscar@companyx.com',
-		],
-		hr: ['mo@companyx.com', 'jag@companyx.com', 'ilaria@companyx.com'],
-	},
-	sales: {
-		business: {
-			senior: ['larry@companyx.com', 'sally@companyx.com'],
-		},
-		client: {
-			senior: ['jola@companyx.com', 'amit@companyx.com'],
-			exec: ['asha@companyx.com', 'megan@companyx.com'],
-		},
-	},
-};
+function Car(brand, model, transmition, color) {
+	this.brand = brand;
+	this.model = model;
+	this.transmition = transmition;
+	this.color = color;
 
-function sendEmail(emailAddress) {
-	console.log(`sending email to ${emailAddress}`);
+	this.run = function (driver) {
+		console.log(`Let's drive ${driver} on ${this.brand} ${this.model}`);
+	};
 }
-
-/* function gatherEmailAddresses(departments) {
-	let departmentKeys = Object.keys(departments);
-	for (let i = 0; i < departmentKeys.length; i++) {
-		if (Array.isArray(departments[departmentKeys[i]])) {
-			departments[departmentKeys[i]].forEach(email => sendEmail(email));
-		} else {
-			for (let dept in departments[departmentKeys[i]]) {
-				if (Array.isArray(departments[departmentKeys[i]][dept])) {
-					departments[departmentKeys[i]][dept].forEach(email =>
-						sendEmail(email)
-					);
-				} else {
-					for (let subDept in departments[departmentKeys[i]][dept])
-						if (
-							Array.isArray(
-								departments[departmentKeys[i]][dept][subDept]
-							)
-						) {
-							departments[departmentKeys[i]][dept][
-								subDept
-							].forEach(email => sendEmail(email));
-						}
-				}
-			}
-		}
-	}
+const bmw = new Car('BMW', 'X5', 'automatic', 'black');
+// console.log(bmw)
+bmw.brand = 'Alpina'
+// console.log(bmw)
+// console.log(Object.getOwnPropertyDescriptor(bmw, 'brand'))
+// console.log(Object.getOwnPropertyDescriptors(bmw))
+console.log(Object.defineProperty(bmw, 'color', 
+          {value: 'red',
+          // enumerable: false,
+           writable: false,
+          // configurable: false
+        }));
+console.log(
+	Object.defineProperties(bmw, {
+		maxSpeed: {value: 300},
+    power: {value: 200, writable: true}
+	})
+);
+/* console.log(Object.getOwnPropertyDescriptor(bmw, 'color'));
+for(let key in bmw) {
+  console.log(`${key}: `)
 } */
-function gatherEmailAddresses(departments) {
-	let departmentKeys = Object.keys(departments);
-	departmentKeys.forEach(dept => {
-		if (Array.isArray(departments[dept])) {
-			return departments[dept].forEach(email => sendEmail(email));
-		}
-		return gatherEmailAddresses(departments[dept]);
-	});
+// bmw.color = 'green';
+// delete bmw.color;
+console.log(bmw);
+const phone = {
+  price: 200,
+  resolution: '800x400'
 }
-gatherEmailAddresses(companyEmailAddresses);
+const carPhone = Object.assign({}, bmw, phone);
+console.log(carPhone);
+console.log(Object.getOwnPropertyDescriptor(carPhone, 'color'));
+// Object.preventExtensions(phone);
+// Object.seal(phone);
+// Object.freeze(phone);
+
+// phone.color = 'red';
+// phone.price = 300;
+for (let key in phone) {
+	console.log(`${key}: `);
+}
+console.log(Object.entries(bmw));
+const obj = Object.create(new Array)
+console.dir(obj);

@@ -1,39 +1,21 @@
 'use strict';
 // debugger
-let firstName = 'John';
-let lastName = 'Doe';
-
-function sayHi(name) {
-	console.log('Hi, ' + firstName);
-  // console.log(message);
-  function getHi() {
-		console.log('Get ' + message);
-  }
-  getHi();
-	return function () {
-    let message ='qwerty'
-		return `Hello ${name} ${message}`;
-	};
-  
+function counter(){
+  let count = 0;
+  return function(){
+    count++;
+    return count;
+  };
 }
+const counter1 = counter();
+const counter2 = counter();
 
-firstName = 'Pete';
-const hello = sayHi('Greg');
-sayHi('Billy')
-console.log(hello())
+console.log(counter1());
+console.log(counter1());
+console.log(counter1());
+console.log('=========')
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
+console.log(counter2());
 
-// console.log(sayHi());
-// debugger
-/* function makeWorker() {
-	let firstName = 'Pete';
-
-	return function () {
-		return firstName;
-	};
-}
-
-let firstName = 'John';
-
-let work = makeWorker();
-
-console.log(work()); */

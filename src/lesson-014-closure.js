@@ -1,21 +1,9 @@
 'use strict';
 // debugger
-function counter(){
-  let count = 0;
-  return function(){
-    count++;
-    return count;
-  };
+function fibonacci(position){
+  if(position < 3){
+    return 1
+  }
+  return fibonacci(position - 1) + fibonacci(position - 2);
 }
-const counter1 = counter();
-const counter2 = counter();
-
-console.log(counter1());
-console.log(counter1());
-console.log(counter1());
-console.log('=========')
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-console.log(counter2());
-
+console.log(fibonacci(10));

@@ -1,33 +1,62 @@
 'use strict';
-/* let numb = 3025512.55822547444;
-console.log(Number('12'));
-console.log(Date.now().toExponential(2));
-console.log(numb.toPrecision(6)); */
-// String
-let sams = '  Samsung Galaxy  ';
-let xiomi = 'Mi Pro 11T';
-let together = sams.concat(' ', xiomi, ' Nokia');
-let sliceStr = together.slice(3, 10);
-let url = 'http://localhost:5501/';
-let arrStr = together.split('', 20)
-let subStr = together.substring(3, 8)
-let samsGap = '  Samsung Galaxy  ';
-console.log(sams.length);
-console.log(sams[6]);
-console.log(sams.charAt(6));
-console.log(sams.charCodeAt(6));
-console.log(together);
-console.log(together.includes('Nok', 20));
-console.log(together.indexOf('o'));
-console.log(together.lastIndexOf('o'));
-console.log(sams.repeat(3));
-console.log(sliceStr);
-console.log(url.slice(url.indexOf('/')+2, url.lastIndexOf(':')));
-console.log(arrStr)
-console.log(subStr);
-console.log(together);
-console.log(together.toUpperCase());
-console.log(together.toLowerCase());
-console.log(together);
-console.log(samsGap.trim());
+const arr1 = [10, 1, 2];
+const arr2 = Array(10);
+// console.log(arr1)
+const fruits = ['Apple', 'Orange', 'Pear', 'Peach', 'Pineapple', 'Plum'];
+arr1[0] = 10;
+fruits[6] = 'Cherry';
+// console.log(arr1[0]);
+// delete arr1[1];
+// console.log(arr1)
+// console.log(fruits);
+// Push
+console.log(fruits.push('Lemon', 'Banana', 'Strawberry'));
+// console.log(fruits);
+// Pop
+console.log(fruits.pop());
+// console.log(fruits);
+// Shift
+console.log(fruits.shift());
+// console.log(fruits);
+// Unshift
+console.log(fruits.unshift('Pineapple', 'Strawberry', 'Melon'));
+// console.log(fruits);
+// At
+// console.log(fruits.at(-3));
+// console.log(fruits[fruits.length - 1]);
+// concat
+const concatArr = fruits.concat(arr1, ['DHS', 'TSP']);
+// console.log(concatArr);
+// fill
+// console.log(arr2);
+// console.log(arr2.fill('Donic'));
+// Flat
+const arr3 = [1, [2, 3], 4, [5, 6, [7, 8, [9, 10]]]];
+console.log(arr3.flat(Infinity));
+// Includes
+console.log(concatArr.includes('DHS'));
+// indexOf
+console.log(Array.isArray(concatArr));
+console.log(concatArr instanceof Object);
+// join
+console.log(concatArr.join(' '));
+console.log(arr1.join());
+// reverse
+console.log(arr1.reverse());
+// slice
+console.log(concatArr.slice(5, 10));
+// sort
+console.log(arr1.sort((a, b) => a - b));
+console.log(arr1.sort((a, b) => b - a));
+console.log(fruits.sort());
+// splice
+console.log(concatArr.splice(11, 0, 'Watermelon'));
+console.log(concatArr);
+/* Написать функцию, которая будет разворачивать строку наоборот. Строка принимается в аргументы. Также в 
+  аргументы можно принимать необходимые данные для работы функции. Использовать методы строк и массивов */
+const str1 = 'Montenegro';
+const str2 = 'Kyev City';
+const reverseStr = (str, separator) => str.split(separator).reverse().join(separator);
+console.log(reverseStr(str1, ''));
+console.log(reverseStr(str2, ' '));
 

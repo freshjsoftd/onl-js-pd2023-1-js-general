@@ -1,106 +1,52 @@
 'use strict';
-/* function Player(firstName, lastName, foreHand, backHand, age, rate, city) {
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.foreHand = foreHand;
-	this.backHand = backHand;
-	this.age = age;
-	this.rate = rate;
-	this.city = city;
+// find, findIndex
+const arr1 = [1, 2, 4, 8, 11, 15];
+const arr2 = ['Donic', 'Stiga', 'DHS', 'TSP'];
+const arr3 = [{ name: 'Bob' }, { name: 'Jhon' }, { name: 'Bill' }];
+// console.log(arr1.find((el) => el % 3 === 0))
+// console.log(arr3.find(el => el.name === 'Bill'));
+
+// console.log(arr1.findLastIndex((el) => el % 2 === 0))
+// forEach
+// arr2.forEach(el => console.log(el));
+/* arr1.forEach((el, index, arr) => {
+  arr[index] = el * 10;
+}) */
+// console.log(arr1);
+// map
+const arr4 = ['1', '2', '3', '4', '5', '6'];
+
+function parseToInt(el){
+  return parseInt(el)
 }
-const maLong = new Player(
-	'Ma',
-	'Long',
-	'Butterfly Tenergy 19',
-	'Donic Acuda S1',
-	35,
-	40,
-	'Dnipro'
-);
-const xuXin = new Player(
-	'Xu',
-	'Xin',
-	'Butterfly Tenergy 05',
-	'Stiga Calibra',
-	30,
-	38,
-	'Kiev'
-);
-const kokiNiva = new Player(
-	'Koki',
-	'Niva',
-	'DHS Huricane',
-	'TSP',
-	25,
-	35,
-	'Odessa'
-);
-
-
-const players = [maLong, xuXin, kokiNiva];
-
-function getProps(limAge){
-  if(this.age > limAge){
-    console.log(`${this.firstName} ${this.lastName} is too old`);
-  }else{
-    for(let key in this) {
-      console.log(`${key} = ${this[key]}`);
-    }
-  }
-} */
-// call and apply
-/* const limAge = 25;
-for(let i = 0; i < players.length; i++){
-  getProps.apply(players[i], [limAge]);
-  console.log('==================')
-} */
-
-// bind
-/* const player = maLong;
-const getPropsWithThis = getProps.bind(player, 40);
-// getPropsWithThis();
-const timoBoll = new Player(
-	'Timo',
-	'Boll',
-	'Butterfly Tenergy 19',
-	'Donic Acuda S1',
-	35,
-	40,
-	'Dnipro'
-);
-timoBoll.run = getPropsWithThis;
-timoBoll.run() */
-// =====================
-function getObj(key) {
-	return this[key];
+const intArr = arr4.map(el => el);
+// const arr10 = intArr;
+// console.log(arr10 === intArr);
+// console.log(arr4 === intArr);
+// console.log(intArr);
+// console.log(arr2.map((el, i) => `${el} is #${i+1} in the world`));
+// some-every
+// console.log(arr1.every(el => typeof el === 'number'));
+// console.log(arr1.some(el => el % 2 === 0));
+// filter
+const filteredArr = arr3.filter(el => el.name == 'Jhon');
+// console.log(filteredArr);
+// reduce
+/* 
+array.reduce(callback, [initialValue]);
+callback(accum, currentValue, i, arr)
+if(initialValue){
+  accum = initialValue;
+  currentValue = arr[0];
+}else{
+  accum = arr[0];
+  currentValue = arr[1]
 }
-// console.log(getObj())
-function Country(
-	title = 'Ukraine',
-	capital = 'Kiyv',
-	area = 8e5,
-	population = 4.8e7
-) {
-	this.title = title;
-	this.capital = capital;
-	this.area = `${area} square km`;
-	this.population = `${population} persons`;
-	// this.getCountry = getObj;
-}
-
-const ukraine = new Country();
-const usa = new Country('USA', 'Washington', 1e6, 15e7);
-function printCountryPropeties(country) {
-	for (let prop in country) {
-		if (typeof country[prop] !== 'function')
-			console.log(`${prop}: ${getObj.call(country, prop)}`);
-	}
-}
-console.log(usa);
-console.log(ukraine);
-
-// debugger
-printCountryPropeties(usa);
-console.log('====================');
-printCountryPropeties(ukraine);
-
+ */
+console.log(arr1.reduce((a, b) => a + b))
+const arrArr = [
+	[0, 1],
+	[2, 3],
+	[4, 5],
+];
+console.log(arrArr.reduce((a, b) => a.concat(b)));

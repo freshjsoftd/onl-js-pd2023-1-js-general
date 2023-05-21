@@ -1,77 +1,83 @@
 'use strict';
-/* const obj = {
-  age: 20,
-};
-const arr = [1];
-arr.valueOf()
-console.dir(obj);
-console.log(arr); */
-
-// arr.__proto__.__proto__.valueOf.apply(arr);
-
-// const arr1 = Array(1, 2);
-function someFun(a){
-  // return 'I am a function'
-  return arguments;
+function MyArray(...args) {
+	this.length = 0;
+	for (let i = 0; i < args.length; i++) {
+		this.push(args[i]);
+	}
+	/* this.push = function(item){
+    this[this.length] = item;
+    return ++this.length;
+  } */
 }
-const someFunExp = function (a){
-  return arguments;;
-}
+MyArray.prototype = new MyArrayProto();
 
-const someArrowFun = (a, b, ...args) => {
-  args.forEach(arg => console.log(arg));
-};
-
-// console.log(someFun(1, 2, 'donic'));
-// console.log(someFunExp(2));
-someArrowFun(1, 5, 8, 10,12,15,18,20,);
-
-const numbArr = [1, 2, 3, 4, 5, 500, 1000, true,]
-
-const newNumbArr = [8000, ...numbArr, 10000]
-
-console.log(newNumbArr);
-
-const max = Math.max(...numbArr)
-console.log(max)
-
-
-
-// =======================
-/* function getObj() {
-	return this;
-}
-function Country(
-	title = 'Ukraine',
-	capital = 'Kiyv',
-	area = 8e5,
-	population = 4.9e6,
-) {
-  // without new
-  if(!new.target){
-    return new Country(title, capital, area, population);
+console.dir(MyArray);
+function MyArrayProto() {
+	// Implement push
+	this.push = function (...args) {
+		if (args.length > 0) {
+			for (let i = 0; i < args.length; i++) {
+				this[this.length++] = args[i];
+			}
+		}
+		return this.length;
+	};
+	// Implement pop
+	this.pop = function () {
+		if (this.length === 0) {
+			return;
+		}
+		const lastEl = this[this.length - 1];
+		delete this[--this.length];
+		return lastEl;
+	};
+	// Implement forEach
+	this.forEach = function (fn) {
+		for (let i = 0; i < this.length; i++) {
+			fn(this[i], i, this);
+		}
+	};
+	// Implement some
+	this.some = function (fn) {
+		if (this.length === 0) {
+			return false;
+		}
+		for (let i = 0; i < this.length; i++) {
+			if (fn(this[i], i, this)) {
+				return true;
+			}
+		}
+		return false;
+	};
+	// Implement filter
+	this.filter = function (fn) {
+		const newArray = new MyArray();
+		for (let i = 0; i < this.length; i++) {
+			if (fn(this[i], i, this)) {
+				newArray.push(this[i]);
+			}
+		}
+		return newArray;
+	};
+	// Implement map
+  this.map = function(fn){
+    const newArray = new MyArray();
+    for (let i = 0; i < this.length; i++){
+      newArray.push(fn(this[i], i, this));
+    }
+    return newArray;
   }
-  this.title = title;
-  this.capital = capital;
-  this.area = `${area} square km`;
-  this.population = `${population} persons`;
-  // this.getCountry = getObj;
 }
-console.dir(Country);
-Country.prototype.getCountry = getObj;
-Country.prototype.isEuroMember = true;
 
-const ukraine = new Country();
-const usa = new Country('USA', 'Washington', 1e6, 15e6);
-function printCountryPropeties(country){
-  for(let key in country) {
-    if(typeof country[key] !== 'function')
-    console.log(`${key}: ${country.getCountry()[key]}`);
-  }
-}
-// console.log(usa);
-console.log(ukraine);
+const myArr = new MyArray(20, 30, 50);
+const myArr2 = new MyArray('Donic', 'MaLong');
+// console.log(myArr.pop());
+console.log(myArr2.pop());
+myArr.forEach(el => console.log(el * 2));
+console.log(myArr);
+console.log(myArr.some(el => el % 8 === 0));
+console.log(myArr.filter(el => el < 30 ));
+console.log(myArr.map(el => el**2));
 
-// printCountryPropeties(usa);
-console.log('====================');
-printCountryPropeties(ukraine);  */
+const arr = Array(12, 18, 20);
+console.log(arr);

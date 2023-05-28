@@ -1,4 +1,4 @@
-class Transport {
+/* class Transport {
 	constructor(type) {
 		this.type = type;
 	}
@@ -93,7 +93,7 @@ console.log(veh.move());
 console.log(honda.move());
 
 console.log(Car.isCar(honda));
-console.log(Vehicle.isVehile(honda));
+console.log(Vehicle.isVehile(honda)); */
 // console.log(veh.go());
 
 // const transp = new Transport();
@@ -107,3 +107,101 @@ console.log(Vehicle.isVehile(honda));
 // 	console.log(key);
 // }
 // console.log(transp.move());
+// Implementation Array in class
+class MyArray{
+	constructor(...args) {
+		this.length = 0;
+		for (let i = 0; i < args.length; i++){
+			this.push(args[i]);
+		}
+	}
+
+	static isMyArray(obj){
+		return obj instanceof MyArray;
+	}
+
+	// push
+	push(...args){
+		if(args){
+			for(let i = 0; i < args.length; i++){
+				this[this.length++] = args[i];
+			}
+			return this.length;
+		}
+	}
+	forEach(fn) {
+		for (let i = 0; i < this.length; i++) {
+			fn(this[i], i, this);
+		}
+	}
+	some(fn){
+		for(let i = 0; i < this.length; i++){
+			if(fn(this[i], i, this)){
+				return true;
+			}
+		}
+		return false;
+	}
+	every(fn){
+		if(this.length === 0){
+			return true;
+		}
+		for(let i = 0; i < this.length; i++){
+			if(!fn(this[i], i, this)){
+				return false;
+			}
+		}
+		return true;
+	}
+	reverse(){
+		const lastIndex = this.length - 1;
+		// let temp;
+		for (let i = 0; i < Math.floor(this.length / 2); i++) {
+			// temp = this[i];
+			// this[i] = this[lastIndex - i];
+			// this[lastIndex - i] = temp;
+			[this[i], this[lastIndex - i]] = [this[lastIndex - i], this[i]];
+		}
+		return this;
+	}
+	concat(...args) {
+		const result = this;
+		for (let i = 0; i < args.length; i++) {
+			if(Array.isArray(args[i])) {
+				result.push(...args[i])
+			}else if(MyArray.isMyArray(args[i])){
+				for(let j = 0; j < args[i].length; j++) {
+					result.push(args[i][j]);
+				}
+			}else{
+				result.push(args[i]);
+			}
+		}
+		return result;
+	}
+	flat(depth = 1){
+		let newMyArray = new MyArray();
+		this.forEach(item => {
+			if(MyArray.isMyArray(item) && depth){
+				const tempArr = item.flat(depth-1);
+				newMyArray = newMyArray.concat(tempArr);
+			}else if(item !== undefined){
+				newMyArray.push(item);
+			}
+		})
+		return newMyArray;
+	}
+}
+
+const myArr = new MyArray(10, 20, 30, 0);
+const myArrArr = new MyArray(
+	1,
+	2,
+	new MyArray(3, 4, new MyArray(5, 6, new MyArray(7, undefined, 8)))
+);
+console.log(myArr.some((el)=> el % 3 === 0 ));
+console.log(myArr.every((el)=> (el % 10 === 0 && el !== 0)));
+console.log(myArr);
+console.log(myArr);
+console.log(myArr.concat(new MyArray(1,2,3,), [100,200,300], true));
+console.log(myArrArr.flat(Infinity));

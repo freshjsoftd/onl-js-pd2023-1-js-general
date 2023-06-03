@@ -1,153 +1,126 @@
 'use strict';
-// Map
-/* const user = {
+// ==============Symbol as object's properties============
+const mySuperSecretPassword = Symbol('asdfghytrewq');
+const symbol1 = Symbol('id');
+const symbol2 = Symbol.for('user-my-app-12');
+console.log(Symbol('id') === Symbol('id'));
+// console.log(String(symbol));
+// console.log(symbol + '30');
+const obj = {};
+
+obj['myPassword'] = 'password';
+obj[mySuperSecretPassword] = 'qwerty';
+console.log(obj.myPassword);
+console.log(Object.keys(obj))
+console.log(obj);
+for(let key in obj) {
+  console.log(key);
+}
+console.log(obj[mySuperSecretPassword]);
+console.log(symbol2 === Symbol.for('user-my-app-12'));
+console.log('2' === Symbol.keyFor(symbol2));
+// ============Symbol.iterator======================
+class MyArrayIterator {
+	/**
+	 *
+	 * @param {MyArray} myArray
+	 */
+	constructor(myArray) {
+		this.array = myArray;
+		this.count = 0;
+	}
+	next() {
+		return {
+			value: this.array[this.count++],
+			done: this.count > this.array.length,
+		};
+	}
+}
+class MyArray {
+	constructor(...args) {
+		this.length = 0;
+		for (let i = 0; i < args.length; i++) {
+			this.push(args[i]);
+		}
+	}
+
+	static isMyArray = function (obj) {
+		return obj instanceof MyArray;
+	};
+
+	// Implementation own push method
+	push(...args) {
+		if (args) {
+			for (let i = 0; i < args.length; i++) {
+				this[this.length++] = args[i];
+			}
+		}
+		return this.length;
+	}
+	// Implementation own concat method
+	concat(...args) {
+		const result = this;
+		for (let i = 0; i < args.length; i++) {
+			if (Array.isArray(args[i])) {
+				result.push(...args[i]);
+			} else if (MyArray.isMyArray(args[i])) {
+				result.push(...args[i]);
+				// for (let j = 0; j < args[i].length; j++) {
+				// 	result.push(args[i][j]);
+				// }
+			} else {
+				result.push(args[i]);
+			}
+		}
+		return result;
+	}
+	[Symbol.iterator]() {
+    return new MyArrayIterator(this);
+  }
+}
+
+const myArr = new MyArray(1, 3, 5, 7, 9, 12, 16, 20);
+const myArrArr = new MyArray(
+	1,
+	2,
+	new MyArray(3, 4, new MyArray(5, 6, new MyArray(7, undefined, 8)))
+);
+console.log(myArr.concat(new MyArray(100, 200, 300), [1000, 2000, 3000]));
+const fromMyArray = Array.from(myArr);
+console.log(fromMyArray);
+fromMyArray.forEach(elem => console.log(elem));
+// =================Symbol.iterator for any object=================
+const user = {
 	fName: 'Jhon',
 	lName: 'Doe',
-	age: 20,
+	age: 30,
 	email: 'doe@example.com',
+	phone: '123-456',
 };
-const arrObj = Object.entries(user);
-console.log(arrObj);
-const map = new Map(arrObj);
-console.log(map);
-const arrArr = [
-	[NaN, '10'],
-	[20, '20'],
-	['30', 30],
-];
-const arrMap = new Map(arrArr);
-console.log(arrMap);
-arrMap.set(40, '40');
-arrMap.set(40, '50');
-arrMap.set(user, 'log');
-console.log(arrMap);
-console.log(arrMap.get(NaN));
-console.log(arrMap.has(NaN));
-console.log(arrMap.delete(NaN));
-console.log(arrMap.get(NaN));
-// console.log(arrMap.clear());
-console.log(arrMap.size);
-arrMap.forEach((el, key) => console.log(`${key}: ${el}`));
 
-for (const key of arrMap) {
-  console.log(key) 
-} */
-// Set
-/* const str = 'Butterfly';
-const arr = [10, 20, 30];
-const set = new Set(arr);
-console.log(set);
-set.add(40).add(50);
-console.log(set);
-set.delete(40)
-console.log(set);
-set.forEach((value, key) => console.log(`${key}: ${value}`));
-console.log(str.length)
-console.log(Array.from(set)); */
-// =================================================================
-const arr1 = [1, 2, 3, 4, 5, 6, 1, 2, 3, 4, 5, 6];
-// Дать задание убрать из массива дубликаты.
-
-/* const set = new Set(arr1);
-console.log(Array.from(set)); */
-
-/* const uniqueArr = [...new Set(arr1)];
-console.log(uniqueArr); */
-
-/* const set1 = new Set(arr1);
-console.log(set1); */
-
-/* const arr = Array.from(new Set([1, 2, 3, 4, 5, 1, 2, 3, 4, 5]));
-const arr2 = [...new Set([1,2,3,4,5,5])];
-console.log(arr);
-console.log(arr2); */
-
-/* const Arr = [...new Set(arr1)];
-console.log(Arr); */
-// ======================
-// try-catch-finaly
-/* - try...catch,
-   - try...finally,
-   - try...catch...finally */
-
-/* const callRealFunction = () => `It is a real function`;
-// callSomeFunction();
-try {
-	callSomeFunction();
-
-	console.log(callRealFunction());
-} catch (error) {
-	console.log(`an error has happend`);
-	console.error(error);
-} finally {
-	console.log('This message will print any way');
+function makeObjIterable() {
+	const arrEntries = Object.entries(this);
+	let current = 0;
+	let last = arrEntries.length;
+	return {
+		next() {
+			if (current < last) {
+				return {
+					done: false,
+					value: arrEntries[current++],
+				};
+			} else {
+				return {
+					done: true,
+				};
+			}
+		},
+	};
 }
-console.log('Other part of app will go on '); */
-// ========Errors generation ========
-/* class User {
-	constructor(userName, userAge) {
-		const age = parseInt(userAge);
-		if (Number.isNaN(age)) throw new TypeError('Age must be a number');
-		if (age < 0 || age > 150)
-			throw new RangeError('Age must be between 0 and 150');
-		this.age = age;
-		this.userName = userName;
-	}
+user[Symbol.iterator] = makeObjIterable;
 
-	printProps() {
-		return `Name is ${this.userName}, age is ${this.age}`;
-	}
+const propArray = [...user];
+console.log(propArray);
+for (const key of user) {
+    console.log(`${key[0]}: ${key[1]}`);
 }
-
-try {
-	const bill = new User('Bill', );
-	console.log(bill.printProps());
-} catch (error) {
-	console.log(error.name);
-	console.log(error.message);
-	console.log(error);
-}
-console.log('Other part of app will go on '); */
-/* try {
-  console.log(str)
-  getSmth();
-} catch (error) {
-  console.log(error.name);
-  console.log(error.message);
-  console.log(error);
-}
-const str ='ss' */
-// Create own error
-class UserError extends Error {
-	constructor(value, options, ...params) {
-		super(...params);
-		this.name = 'UserError';
-		this.argument = value;
-		this.cause = options.cause ?? 'Common Error';
-	}
-}
-class User {
-	constructor(userName, userAge) {
-		const age = parseInt(userAge);
-		if (Number.isNaN(age))
-			throw new UserError(userAge, {cause: 'Unexpected value'}, 'Age must be a number');
-		if (age < 0 || age > 150)
-			throw new UserError(userAge, {}, 'Age must be between 0 and 150');
-		this.age = age;
-		this.userName = userName;
-	}
-
-	printProps() {
-		return `Name is ${this.userName}, age is ${this.age}`;
-	}
-}
-try {
-	const bill = new User('Bill', -20);
-	console.log(bill.printProps());
-} catch (error) {
-	console.log(error.name);
-	console.log(error.message);
-	console.log(error.cause);
-	console.log(error);
-}
-console.log('Other part of app will go on ');

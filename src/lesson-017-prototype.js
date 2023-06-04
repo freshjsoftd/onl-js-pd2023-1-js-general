@@ -34,7 +34,7 @@ MyArray.isMyArray = function (obj) {
 	return obj instanceof MyArray;
 };
 
-MyArray.prototype = new MyArrayProto();
+// MyArray.prototype = new MyArrayProto();
 
 // Without constructor
 // MyArray.prototype.push = function (...args) {
@@ -74,13 +74,13 @@ MyArray.prototype = new MyArrayProto();
 // 	return result;
 // }; 
 
-MyArray.prototype.reverse = function() {
-		const lastIndex = this.length - 1;
-		for (let i = 0; i < Math.floor(this.length / 2); i++) {
-			[this[i], this[lastIndex - i]] = [this[lastIndex - i], this[i]];
-		}
-		return this;
-	}
+// MyArray.prototype.reverse = function() {
+// 		const lastIndex = this.length - 1;
+// 		for (let i = 0; i < Math.floor(this.length / 2); i++) {
+// 			[this[i], this[lastIndex - i]] = [this[lastIndex - i], this[i]];
+// 		}
+// 		return this;
+// 	}
 
 
 function MyArrayProto() {
@@ -172,7 +172,7 @@ function MyArrayProto() {
 		}
 		return result;
 	};
-}
+} 
 const myArr = new MyArray(20, 30);
 const myArr1 = new MyArray(100, 500, 700, 900, 1000);
 
@@ -187,7 +187,7 @@ console.log(myArr.concat(myArr1));
 myArr.forEach((item, index, arr) => {
 	arr[index] = item * 10;
 });
-console.log(myArr1.reverse()); */
+console.log(myArr1.reverse());*/
 // =====================HW getting number================================
 // debugger
 /* function findSolution(target) {
@@ -198,20 +198,24 @@ console.log(myArr1.reverse()); */
 			return null;
 		} else {
 			return (
+				find(current * 5, `(${history} * 5)`) ||
+				find(current * 3, `(${history} * 3)`) ||
 				find(current + 5, `(${history} + 5)`) ||
-				find(current * 3, `(${history} * 3)`)
+				find(current + 3, `(${history} + 3)`)
 			);
 		}
 	}
 	return find(1, '1');
 }
-console.log(findSolution(18)); */
+console.log(findSolution(26)); */
 // ===================factorial with recursion=========================
 /* function getFactorial(num) {
-	if (num === 1) return num;
+	if (num === 1 || !num) {
+		return num;
+	}
 	return num * getFactorial(num - 1);
 }
-console.log(getFactorial(10)); */
+console.log(getFactorial()); */
 // ==============HW get new rate============================
 /* function getNewRate(winnerRate, looserRate) {
 	const deltaRate = winnerRate - looserRate;
@@ -244,8 +248,8 @@ console.log(getNewRate(30, 51.1)); */
 // ===========Father twofold older===============
 
 /* function checkFatherAge(sonAge, fatherAge) {
-	return fatherAge - sonAge >= 15 && fatherAge > 0 && sonAge > 0
-		? fatherAge - 2 * sonAge
+	return (fatherAge - sonAge >= 15 && fatherAge > 0 && sonAge >= 0)
+		? (fatherAge - 2 * sonAge)
 		: 'You enterd wrong age';
 }
 

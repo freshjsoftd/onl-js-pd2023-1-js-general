@@ -209,20 +209,21 @@ console.log(myArr1.reverse());*/
 }
 console.log(findSolution(26)); */
 // ===================factorial with recursion=========================
-/* function getFactorial(num) {
+function getFactorial(num) {
 	if (num === 1 || !num) {
 		return num;
 	}
 	return num * getFactorial(num - 1);
 }
-console.log(getFactorial()); */
+export default getFactorial;
+console.log(getFactorial());
 // ==============HW get new rate============================
 /**
  * @param {number} winnerRate Winner's rate before game
  * @param {number} looserRate Looser's rate before game
  * @return {number} - Winner's rate after game
  */
-/* function getNewRate(winnerRate, looserRate) {
+export function getNewRate(winnerRate, looserRate) {
 	const deltaRate = winnerRate - looserRate;
 	if (
 		winnerRate < 0 ||
@@ -249,7 +250,8 @@ console.log(getFactorial()); */
 		return winnerRate + Math.round((Math.abs(deltaRate) + 5) / 3);
 	}
 }
-console.log(getNewRate(30, 51.1)); */
+console.log(getNewRate(30, 51.1));
+// export default getNewRate;
 // ===========Father twofold older===============
 
 /* function checkFatherAge(sonAge, fatherAge) {

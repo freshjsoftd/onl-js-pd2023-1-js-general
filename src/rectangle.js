@@ -7,19 +7,23 @@ rootSquare.addEventListener('click', (e) => {
 	// e.stopPropagation();
 	// e.stopImmediatePropagation();
 	console.log('1');
-	console.log(e.target);
-	console.log(e.currentTarget);
+	// console.log(e.target);
+	// console.log(e.currentTarget);
 },
-true
+// true
 );
 secondSquare.addEventListener('click', (e) => {
 	// e.stopPropagation();
 	// e.stopImmediatePropagation();
 	console.log('2');
-	console.log(e.target);
-	console.log(e.currentTarget);
+	// console.log(e.target);
+	// console.log(e.currentTarget);
 }, 
-true
+// {
+// 	capture: true,
+// 	once: true,
+// }
+// true
 );
 secondSquare.addEventListener('click', (e) => {
 	// e.stopPropagation();
@@ -30,7 +34,7 @@ secondSquare.addEventListener('click', (e) => {
 // 	// caprture: true,
 // 	once: true
 // }
-true
+// true
 );
 thirdSquare.addEventListener(
 	'click',
@@ -38,8 +42,8 @@ thirdSquare.addEventListener(
 		// e.stopPropagation();
 		// e.stopImmediatePropagation();
 		console.log('3');
-		console.log(e.target);
-		console.log(e.currentTarget);
+		// console.log(e.target);
+		// console.log(e.currentTarget);
 	},
-	true
+	// true
 );

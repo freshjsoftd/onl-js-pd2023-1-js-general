@@ -9,12 +9,15 @@ function bgChange() {
 }
 function setBackground(e) {
 	// console.log(this);
-	// console.log(e.target);
-	// console.log(e.currentTarget);
+	e.stopPropagation();
+	console.log(e.target);
+	console.log(e.currentTarget);
 	return (e.target.style.backgroundColor = bgChange());
 }
 
 const container = document.querySelector('#container');
+const subCont = document.querySelector('#sub-container')
+subCont.addEventListener('click', setBackground)
 container.addEventListener('click', setBackground);
 /* container.addEventListener('click', (event) => {
   console.log(this)

@@ -217,6 +217,11 @@ console.log(findSolution(26)); */
 }
 console.log(getFactorial()); */
 // ==============HW get new rate============================
+/**
+ * @param {number} winnerRate Winner's rate before game
+ * @param {number} looserRate Looser's rate before game
+ * @return {number} - Winner's rate after game
+ */
 /* function getNewRate(winnerRate, looserRate) {
 	const deltaRate = winnerRate - looserRate;
 	if (

@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
   <!-- <script defer src="./src/lesson-010.js"></script> -->
   <!-- <script defer src="./src/lesson-011.js"></script> -->
   <!-- <script defer src="./src/lesson-012-function.js"></script> -->
@@ -15,25 +16,11 @@
   <!-- <script defer src="./src/lesson-018-classes.js"></script> -->
   <!-- <script defer src="./src/lesson-019-regExp.js"></script> -->
   <!-- <script defer src="./src/lesson-020-errors-symbol.js"></script> -->
-  <script defer src="./src/lesson-021-DOM.js"></script>
+  <!-- <script defer src="./src/lesson-021-DOM.js"></script> -->
   <title>Learn JS</title>
 </head>
 <body>
-
-  <!-- <div class="container">
-    <ul>
-      <li>
-        <p>1 par</p>
-      </li>
-      <li>
-        <p>2 par</p>
-      </li>
-      <li>
-        <p>3 par</p>
-      </li>
-    </ul>
-  </div> -->
-  <!-- <div id="container">
+  <div id="container">
 			<p id="firstP">First Par</p>
 			<p id="secondP">Second Par</p>
 			<p>Third Par</p>
@@ -41,18 +28,33 @@
 			<p>Fifth Par</p>
 		</div>
 		<div class="img-container">
-			<img src="./assets/imgs/480px-JavaScript-logo.png" alt="" />
+			<img
+				src="./assets/imgs/480px-JavaScript-logo.png"
+				alt="JavaScript"
+				width="200px"
+			/>
 		</div>
-    <div class="anchors">
-      <a href="https://www.ttspin.club/" name="spin">TT club Spin</a>
-      <a href="https://learn.javascript.ru/">Learn JavaScript</a>
-      <a href="https://developer.mozilla.org/" name="mdn">MDN org</a>
-      <a href="https://www.youtube.com/" name="youtube">Youtube</a>
-    </div>
-    <form >
-      <input type="text">
-      <input type="text">
-      <input type="text">
-    </form> -->
+		<div class="anchors">
+			<a href="./tiles.html" name="tiles">Tiles</a>
+			<a href="./rectangle.html" name="rectangle">Rectangle</a>
+			<a href="https://learn.javascript.ru/">Learn JavaScript</a>
+			<a href="https://developer.mozilla.org/" name="mdn">MDN org</a>
+		</div>
+		<form>
+			<div id="winner">
+				<label for="in1">Winner</label>
+				<input id="in1" type="text" />
+			</div>
+			<div id="looser">
+				<label for="in2">Loser</label>
+				<input id="in2" type="text" />
+			</div>
+			<div>
+				<span id="new-rate"></span>
+			</div>
+			<div class="btn">
+				<button>Calculate</button>
+			</div>
+		</form>
 </body>
 </html>

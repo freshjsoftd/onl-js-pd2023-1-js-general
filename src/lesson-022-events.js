@@ -2,7 +2,7 @@
 import * as proto from './lesson-017-prototype.js';
 import getFactorial from './lesson-017-prototype.js';
 // 1 way
-function showText() {
+/* function showText() {
 	console.log('Text');
 }
 // 2 way
@@ -22,7 +22,7 @@ par3.addEventListener('click', showText, true);
 par3.addEventListener('click', () => console.log('Another one par #3'));
 par3.removeEventListener('click', showText);
 // preventDefault
-const btnCalculate = document.querySelector('.btn > button');
+const btnCalculate = document.querySelector('.btn > button'); */
 // console.log(btnCalculate)
 // btnCalculate.addEventListener('click', (e) => {
 //   e.preventDefault();
@@ -34,6 +34,7 @@ const winnerRate = document.getElementById('in1');
 const loserRate = document.querySelector('#in2');
 const span = document.querySelector('#new-rate');
 
+/*
 // console.dir(loserRate)
 let winRate;
 let losRate;
@@ -46,4 +47,5 @@ function calculateWinRate(event) {
 	span.textContent = proto.getNewRate(winRate, losRate);
 }
 btnCalculate.addEventListener('click', calculateWinRate);
-console.log(getFactorial(5));
+console.log(getFactorial(5)); */
+export default span;

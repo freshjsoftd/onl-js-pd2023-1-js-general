@@ -184,7 +184,7 @@ function getWeather(){
 		});
 }
 getWeather(); */
-async function getPBOffice() {
+/* async function getPBOffice() {
 	const url =
 		'https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5';
 	const officeHeaders = new Headers();
@@ -210,4 +210,11 @@ async function getPBOffice() {
 		console.log(error);
 	}
 }
-getPBOffice();
+getPBOffice(); */
+console.log([2, 2, 2, 2].map(parseInt));
+console.log(parseInt(2, 0));
+console.log(parseInt(2, 1));
+console.log(parseInt(2, 2));
+console.log(parseInt(2, 3));
+[2, 2, 2, 2].map(console.log);
+

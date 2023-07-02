@@ -4,7 +4,7 @@
 const arrNumber = [];
 let start = Date.now();
 let arrSortNumb = [];
-const limit = 1e7;
+const limit = 1e5;
 const value = 5000;
 const createArrNumber = (limit) => {
   for(let i = 0; i < limit; i++) {
@@ -17,7 +17,7 @@ createArrNumber(limit);
 
 arrSortNumb = arrNumber.sort((a, b) => a - b); 
 
-const linearSearch = (arr, value) => {
+/* const linearSearch = (arr, value) => {
 	for (let i = 0; i < arr.length; i++) {
 		if (value === arr[i]) {
 			console.log(`Find number for ${Date.now() - start} ms`);
@@ -25,7 +25,7 @@ const linearSearch = (arr, value) => {
 		}
 	}
 	return -1;
-};
+}; */
 // console.log(linearSearch(arrSortNumb, value));
 // =====O(logn)
 const binarySearch = (arr, value) => {
@@ -50,4 +50,18 @@ const binarySearch = (arr, value) => {
 	return -1;
 };
 
-console.log(binarySearch(arrSortNumb, value));
+// console.log(binarySearch(arrSortNumb, value));
+// ===========O(n**2)================================
+function bubbleSort(arr){
+	const n = arr.length;
+	for(let i = 0; i < n-1; i++){
+		for(let j = 0; j < n-1; j++){
+			if(arr[j + 1] < arr[j]){
+				[arr[j + 1], arr[j]] = [arr[j], arr[j + 1]];
+			}
+		}
+	}
+	console.log(`Sort by bubble fot ${Date.now() - start} ms`)
+	return arr;
+}
+bubbleSort(arrNumber);

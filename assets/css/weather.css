@@ -1,0 +1,76 @@
+* {
+	box-sizing: border-box;
+	margin: auto;
+}
+:root {
+	text-align: center;
+}
+form {
+	border: 2px solid;
+	min-width: 600px;
+	max-width: 700px;
+  display: flex;
+  flex-direction: column;
+}
+input[type="text"]{
+  max-width: 70%;
+  min-width: 60%;
+  height: 30px;
+  display: inline-block;
+}
+.btn-container{
+  /* border: 2px solid green; */
+  min-width: 500px;
+	max-width: 80%;
+  height: 50px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+}
+.city-container > label{
+  max-width: 40%;
+  min-width: 30%;
+  display: inline-block;
+}
+.city-container {
+	border: 2px solid green;
+	min-width: 500px;
+	max-width: 80%;
+  height: 50px;
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+}
+.city-option-container{
+  /* border: 2px solid green; */
+	min-width: 30%;
+	max-width: 50%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+.radio-container {
+	border: 2px solid blue;
+  min-width: 500px;
+	max-width: 80%;
+  margin: 10px auto;
+	display: flex;
+	justify-content: center;
+}
+.weather-container{
+  border: 2px solid blue;
+  min-width: 500px;
+	max-width: 80%;
+  margin: 10px auto;
+  display: flex;
+}
+.weather-props{
+  min-width: 30%;
+  padding: 5px;
+}
+.weather-props > p{
+  border: 2px solid blue;
+  min-width: 30%;
+  height: 30px;
+  padding-top: 5px;
+}
